@@ -18,19 +18,19 @@ const db = firebase.database();
 // Ждём полной загрузки DOM, чтобы элементы точно существовали
 document.addEventListener('DOMContentLoaded', () => {
     const messagesDiv = document.getElementById('messages');
-    const nameInput = document.getElementById('nameInput');
+    const name = document.getElementById('name');
     const messageInput = document.getElementById('messageInput');
     const sendBtn = document.getElementById('sendBtn');
 
     // Проверка на случай, если какой-то элемент не найден
-    if (!messagesDiv || !nameInput || !messageInput || !sendBtn) {
+    if (!messagesDiv || !name || !messageInput || !sendBtn) {
         console.error('Ошибка: не найдены элементы чата!');
         return;
     }
 
     // Функция отправки сообщения
     sendBtn.onclick = () => {
-        const name = nameInput.value.trim() || "Аноним";
+        
         const text = messageInput.value.trim();
 
         if (text) {
