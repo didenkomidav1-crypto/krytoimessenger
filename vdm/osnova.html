@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Web Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Блок авторизации (показывается, если не залогинен) -->
+    <div id="authSection" class="auth-container">
+        <div class="auth-tabs">
+            <button id="loginTabBtn" class="tab-btn active">Вход</button>
+            <button id="registerTabBtn" class="tab-btn">Регистрация</button>
+        </div>
+        <!-- Форма входа -->
+        <div id="loginForm" class="auth-form">
+            <input type="email" id="loginEmail" placeholder="Email" autocomplete="email">
+            <input type="password" id="loginPassword" placeholder="Пароль" autocomplete="current-password">
+            <button id="loginBtn">Войти</button>
+        </div>
+        <!-- Форма регистрации (скрыта по умолчанию) -->
+        <div id="registerForm" class="auth-form hidden">
+            <input type="email" id="regEmail" placeholder="Email" autocomplete="email">
+            <input type="password" id="regPassword" placeholder="Пароль (мин. 6 символов)" autocomplete="new-password">
+            <input type="text" id="regDisplayName" placeholder="Ваше имя (будет видно в чате)">
+            <button id="registerBtn">Зарегистрироваться</button>
+        </div>
+        <div id="authError" class="error-msg"></div>
+    </div>
+
+    <!-- Блок чата (показывается только после входа) -->
+    <div id="chatSection" class="hidden">
+        <div class="user-info">
+            <span>Вы вошли как: <strong id="userEmail"></strong></span>
+            <button id="logoutBtn" class="logout-btn">Выйти</button>
+        </div>
+        <div class="chat-container">
+            <div id="messages"></div>
+            <div class="input-area">
+                <input type="text" id="messageInput" placeholder="Сообщение...">
+                <button id="sendBtn">Отправить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Firebase SDK (Compat) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+</html>
